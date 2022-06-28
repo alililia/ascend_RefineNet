@@ -261,41 +261,7 @@ Usage: bash scripts/run_distribute_train_ascend_r2.sh [RANK_TABLE_FILE] [DATASET
 # example: bash scripts/run_distribute_train_ascend_r2.sh hccl_8p_01234567_127.0.0.1.json ~/data/voconly0 /disk3/fyf/RefineNet/scripts/refinenet-115_284.ckpt
 ```
 
-#### 处理器环境运行
 
-参考Ascend处理器环境运行方式，使用脚本。同样，首先准备ResNet_101预训练模型：resnet-101.ckpt。
-
-运行以下训练脚本配置单卡训练参数，微调ResNet_101模型：
-
-```bash
-# run_standalone_train.sh
-Usage: bash scripts/run_standalone_train__r1.sh [DATASET_PATH] [PRETRAINED_PATH] [DEVICE_ID]
-#example: bash scripts/run_standalone_train__r1.sh ~/data/sbdonly0 /data1/fyf/resnet-101.ckpt 0
-```
-
-运行以下训练脚本配置单卡训练参数，微调上一步模型：
-
-```bash
-# run_distribute_train.sh
-Usage: bash scripts/run_standalone_train__r2.sh [DATASET_PATH] [PRETRAINED_PATH] [DEVICE_ID]
-#example: bash scripts/run_standalone_train__r2.sh ~/data/voconly0 /data1/fyf/RefineNet/scripts/train2/ckpt_0/refinenet-130_569.ckpt 0
-```
-
-运行以下训练脚本配置八卡训练参数，微调ResNet_101模型(注意多卡训练不需要配置rank_table_ip）：
-
-```bash
-# run_distribute_train.sh
-Usage: bash scripts/run_distribute_train__r1.sh [DATASET_PATH] [PRETRAINED_PATH] [VISIABLE_DEVICES(0,1,2,3,4,5,6,7)]
-#example: bash scripts/run_distribute_train__r1.sh ~/data/sbdonly0 /data1/fyf/resnet-101.ckpt 0,1,2,3,4,5,6,7
-```
-
-运行以下训练脚本配置八卡训练参数，微调上一步模型：
-
-```bash
-# run_distribute_train.sh
-Usage: bash scripts/run_distribute_train__r2.sh [DATASET_PATH] [PRETRAINED_PATH] [VISIABLE_DEVICES(0,1,2,3,4,5,6,7)]
-#example: bash scripts/run_distribute_train__r2.sh ~/data/voconly0 /data1/fyf/refinenet-115_1140.ckpt 0,1,2,3,4,5,6,7
-```
 
 ### 结果
 
@@ -398,6 +364,7 @@ mean IoU 0.8038030230633278
 
 
 ```
+
 
 ### 结果
 
