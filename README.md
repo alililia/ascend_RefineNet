@@ -219,26 +219,7 @@ Ascend处理器环境默认配置
 "keep_checkpoint_max":200                         # 用于保存的最大检查点
 ```
 
-处理器环境默认配置
 
-```bash
-"data_file":"~/data/"                             # 数据集路径
-"device_target":                               # 训练后端类型
-"train_epochs":200                                # 总轮次数
-"batch_size":16                                   # 输入张量的批次大小
-"crop_size":513                                   # 裁剪大小
-"base_lr":0.001                                   # 基础学习率
-"lr_type":cos                                     # 用于生成学习率的衰减模式
-"min_scale":0.5                                   # 数据增强的最小尺度
-"max_scale":2.0                                   # 数据增强的最大尺度
-"ignore_label":255                                # 忽略标签
-"num_classes":21                                  # 类别数
-"ckpt_pre_trained":"/PATH/TO/PRETRAIN_MODEL"      # 加载预训练检查点的路径
-"is_distributed":                                 # 分布式训练，设置该参数为True
-"save_epochs":5                                   # 用于保存的迭代间隙
-"freeze_bn":                                      # 设置该参数freeze_bn为True
-"keep_checkpoint_max":200                         # 用于保存的最大检查点
-```
 
 ## 训练过程
 
@@ -392,24 +373,7 @@ epoch time: 12969.236 ms, per step time: 589.511 ms
 ...
 ```
 
-处理器环境结果
 
-```bash
-# 分布式训练结果（1P）
-epoch: 195 step: 569, loss is 0.05817811
-epoch time: 410643.678 ms, per step time: 721.694 ms
-epoch: 196 step: 569, loss is 0.07650596
-epoch time: 409365.036 ms, per step time: 719.446 ms
-epoch: 197 step: 569, loss is 0.07034514
-epoch time: 409448.961 ms, per step time: 719.594 ms
-epoch: 198 step: 569, loss is 0.07419827
-epoch time: 409355.774 ms, per step time: 719.430 ms
-epoch: 199 step: 569, loss is 0.07571901
-epoch time: 409360.690 ms, per step time: 719.439 ms
-epoch: 200 step: 569, loss is 0.08345377
-epoch time: 410627.769 ms, per step time: 721.666 ms
-...
-```
 
 ## 评估过程
 
@@ -495,20 +459,20 @@ bash scripts/run_infer_310.sh [MINDIR_PATH] [DATA_ROOT] [DATA_LIST] [DEVICE_ID]
 ### 评估性能
 
 | 参数 | Ascend 910|  |
-| -------------------------- | -------------------------------------- | -----------|
-| 模型版本 | RefineNet | RefineNet |
-| 资源 | Ascend 910 | GForce RTX 3090 |
-| 上传日期 | 2021-09-17 | 2022-02-16 |
-| MindSpore版本 | 1.2 | 1.2 |
-| 数据集 | PASCAL VOC2012 + SBD | PASCAL VOC2012 + SBD |
-| 训练参数 | epoch = 200, batch_size = 32 | epoch=200,batch_size=16 |
-| 优化器 | Momentum | Momentum |
-| 损失函数 | Softmax交叉熵 | Softmax交叉熵 |
-| 输出 | 概率 | 概率 |
-| 损失 | 0.027490407 | 0.08345377 |
-| 性能 | 54294.528ms（Ascend八卡） 298406.836ms（Ascend单卡）| 723.160 ms（单卡）|
-| 微调检查点 | 901M（.ckpt文件） | 900M（.ckpt文件）|
-| 脚本 | [链接](https://gitee.com/mindspore/models/tree/master/research/cv/RefineNet) | [链接](https://gitee.com/mindspore/models/tree/master/research/cv/RefineNet)
+| -------------------------- | -------------------------------------- | 
+| 模型版本 | RefineNet |
+| 资源 | Ascend 910 | 
+| 上传日期 | 2021-09-17 | 
+| MindSpore版本 | 1.2 | 
+| 数据集 | PASCAL VOC2012 + SBD | 
+| 训练参数 | epoch = 200, batch_size = 32 | 
+| 优化器 | Momentum | 
+| 损失函数 | Softmax交叉熵 | 
+| 输出 | 概率 | 
+| 损失 | 0.027490407 | 
+| 性能 | 54294.528ms（Ascend八卡） 298406.836ms（Ascend单卡）| 
+| 微调检查点 | 901M（.ckpt文件） | 
+| 脚本 | [链接](https://gitee.com/mindspore/models/tree/master/research/cv/RefineNet) | 
 
 # 随机情况说明
 
