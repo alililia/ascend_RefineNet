@@ -396,20 +396,6 @@ mean IoU 0.8038030230633278
 
 ```
 
-#### 处理器环境运行
-
-使用--ckpt_path配置检查点，运行脚本，在eval_path/log中打印mIOU。
-
-```bash
-# run_eval.sh                     # 测试训练结果
-Usage: bash scripts/run_eval.sh [DATA_LST] [PRETRAINED_PATH] [DEVICE_TARGET] [DEVICE_TARGET] [DEVICE_ID]
-#example: bash scripts/run_eval.sh ~/data/voc_val_lst.txt /data1/fyf/refinenet-115_1140.ckpt  0
-
-per-class IoU [0.95088336 0.90526754 0.62389328 0.90752526 0.77911041 0.79076594
- 0.94210807  0.88425516 0.93747317 0.41626388 0.84932021 0.63371361
- 0.89109052 0.85608585 0.8491058  0.86728246 0.6983279 0.88386951
- 0.47583356 0.8800718 0.78794471]
-mean IoU 0.8004853336726656
 
 ```
 
